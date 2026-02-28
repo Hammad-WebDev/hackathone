@@ -21,7 +21,7 @@ export const getUserFromToken = async () => {
             return;
         }
 
-        let res = await axios.get("http://localhost:3000/auth/verify",
+        let res = await axios.get("https://hackathone-fc6b.vercel.app/auth/verify",
             {
                 headers: { Authorization: `Bearer ${token}` }
             });

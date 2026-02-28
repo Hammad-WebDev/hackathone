@@ -155,7 +155,7 @@ const RegisterPage = () => {
           : {}),
       };
 
-      const res = await axios.post("http://localhost:3000/auth/register", payload);
+      const res = await axios.post("https://hackathone-fc6b.vercel.app/auth/register", payload);
       const token = res?.data?.user?.token || res?.data?.token;
       Cookies.set("token", token, { expires: 1 / 24 });
       await getUserFromToken();
@@ -202,6 +202,11 @@ const RegisterPage = () => {
             {successMessage && (
               <div className="mt-4 rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
                 {successMessage}
+              </div>
+            )}
+            {error && (
+              <div className="mt-4 rounded-lg bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                {error}
               </div>
             )}
 

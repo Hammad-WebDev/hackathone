@@ -93,27 +93,27 @@ const AdminDashboardPage = () => {
       : "Patient";
 
   const fetchDoctors = async () => {
-    const res = await axios.get("http://localhost:3000/doctors/get-all-doctors", authHeaders);
+    const res = await axios.get("https://hackathone-fc6b.vercel.app/doctors/get-all-doctors", authHeaders);
     setDoctors(res?.data?.doctors || []);
   };
 
   const fetchReceptionists = async () => {
     const res = await axios.get(
-      "http://localhost:3000/receptionists/get-all-receptionists",
+      "https://hackathone-fc6b.vercel.app/receptionists/get-all-receptionists",
       authHeaders
     );
     setReceptionists(res?.data?.receptionists || []);
   };
 
   const fetchPatients = async () => {
-    const res = await axios.get("http://localhost:3000/patients/get-all-patients", authHeaders);
+    const res = await axios.get("https://hackathone-fc6b.vercel.app/patients/get-all-patients", authHeaders);
     setPatients(res?.data?.patients || []);
   };
 
   const fetchCounts = async () => {
     try {
       setLoadingCounts(true);
-      const res = await axios.get("http://localhost:3000/stats/get-counts", authHeaders);
+      const res = await axios.get("https://hackathone-fc6b.vercel.app/stats/get-counts", authHeaders);
       const data = res?.data?.counts || {};
       setCounts({
         doctors: Number(data.doctors || 0),
@@ -227,24 +227,24 @@ const AdminDashboardPage = () => {
 
   const getCreateUrl = () =>
     activeEntity === ENTITY.DOCTOR
-      ? "http://localhost:3000/doctors/create-doctor"
+      ? "https://hackathone-fc6b.vercel.app/doctors/create-doctor"
       : activeEntity === ENTITY.RECEPTIONIST
-      ? "http://localhost:3000/receptionists/create-receptionist"
-      : "http://localhost:3000/patients/create-patient";
+      ? "https://hackathone-fc6b.vercel.app/receptionists/create-receptionist"
+      : "https://hackathone-fc6b.vercel.app/patients/create-patient";
 
   const getUpdateUrl = (id) =>
     activeEntity === ENTITY.DOCTOR
-      ? `http://localhost:3000/doctors/update-doctor/${id}`
+      ? `https://hackathone-fc6b.vercel.app/doctors/update-doctor/${id}`
       : activeEntity === ENTITY.RECEPTIONIST
-      ? `http://localhost:3000/receptionists/update-receptionist/${id}`
-      : `http://localhost:3000/patients/update-patient/${id}`;
+      ? `https://hackathone-fc6b.vercel.app/receptionists/update-receptionist/${id}`
+      : `https://hackathone-fc6b.vercel.app/patients/update-patient/${id}`;
 
   const getDeleteUrl = (id) =>
     activeEntity === ENTITY.DOCTOR
-      ? `http://localhost:3000/doctors/delete-doctor/${id}`
+      ? `https://hackathone-fc6b.vercel.app/doctors/delete-doctor/${id}`
       : activeEntity === ENTITY.RECEPTIONIST
-      ? `http://localhost:3000/receptionists/delete-receptionist/${id}`
-      : `http://localhost:3000/patients/delete-patient/${id}`;
+      ? `https://hackathone-fc6b.vercel.app/receptionists/delete-receptionist/${id}`
+      : `https://hackathone-fc6b.vercel.app/patients/delete-patient/${id}`;
 
   const buildPayload = () => {
     if (activeEntity === ENTITY.DOCTOR) {

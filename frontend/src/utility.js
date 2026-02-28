@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const http = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://hackathone-fc6b.vercel.app",
 });
 
 export const showSuccess = (message) => {
